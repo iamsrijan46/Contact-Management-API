@@ -1,0 +1,23 @@
+{
+  "name": "mycontact-backend-api",
+  "version": "1.0.0",
+  "description": "This is expess project for contact management app api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Srijan Mani Tripathi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
