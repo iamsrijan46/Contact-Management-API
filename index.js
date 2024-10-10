@@ -1,5 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
+const connectDb = require("./config/db");
+
+connectDb();
 
 const contact = require("./routes/contactRoutes");
 

@@ -1,5 +1,5 @@
 const createHttpError = require("http-errors");
-const asyncHandler = require("async-handler");
+const asyncHandler = require("express-async-handler");
 
 const getContact = asyncHandler(async(req, res) => {
     res.json({message:"Get all contacts"});
