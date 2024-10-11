@@ -27,7 +27,15 @@ const createContact = asyncHandler(async(req, res, next) => {
 });
 
 const updateContact = asyncHandler(async(req, res) => {
-    res.json({message:`Update the contacts ${req.params.id}`});
+    const contact = await Contact.findById(req.params.id);
+    if(!contact) return next(createHttpError(404, "Contact not found"));
+    const updateContact = await Contact.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true}
+    )
+
+    res.json(updateContact);
 });
 
 const deleteContact = asyncHandler(async(req, res) => {
