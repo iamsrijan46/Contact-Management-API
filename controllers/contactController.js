@@ -8,8 +8,8 @@ const getContact = asyncHandler(async(req, res) => {
 });
 
 const getOneContact = asyncHandler(async(req, res, next) => {
-    // const contact = await Contact.findById(req.params.id);
-    // if(!contact) return next(createHttpError(404, "Contact not found"));
+    const contact = await Contact.findById(req.params.id);
+    if(!contact) return next(createHttpError(404, "Contact not found"));
     res.json(contact);
 });
 
