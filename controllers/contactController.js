@@ -27,9 +27,14 @@ const createContact = asyncHandler(async(req, res, next) => {
         res.status(201).json(contact);
 });
 
-const updateContact = asyncHandler(async(req, res) => {
+const updateContact = asyncHandler(async(req, res, next) => {
     const contact = await Contact.findById(req.params.id);
     if(!contact) return next(createHttpError(404, "Contact not found"));
+
+    if(contact.user_id.toString == req.user.id){
+        return next(createHttpError(403, "Unauthorized to update this contact"));
+    }
+
     const updateContact = await Contact.findByIdAndUpdate(
         req.params.id,
         req.body,
