@@ -45,4 +45,6 @@ const deleteContact = asyncHandler(async(req, res) => {
     res.json(contact);
 });
 
-module.exports = {getContact, createContact, updateContact, deleteContact, getOneContact};
+module.exports = {
+    getContact, createContact, updateContact, deleteContact, getOneContact
+};
