@@ -47,6 +47,11 @@ const updateContact = asyncHandler(async(req, res, next) => {
 const deleteContact = asyncHandler(async(req, res) => {
     const contact = await Contact.findById(req.params.id);
     if(!contact) return next(createHttpError(404, "Contact not found"));
+
+    if(contact.user_id.toString == req.user.id){
+        return next(createHttpError(403, "Unauthorized to update this contact"));
+    }
+
     await Contact.findByIdAndDelete(req.params.id);
     res.json(contact);
 });
