@@ -17,7 +17,6 @@ const createUser = asyncHandler(async(req, res, next) => {
         return next(createHttpError(409, "Email already exists"));
     }
 
-    // Hash the password before saving it to the database
     const hashPassword = await bcrypt.hash(password, 10);
     console.log('The hash password is', hashPassword);
 
